@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+        <html>
+           <head>
+                <title>Image Gallery</title>
+                <!-- Include Bootstrap CSS link -->
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+                <style>
+                    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        body {    
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 5px;
+            background-color: rgb(215, 250, 255);
+        }
+        #gallery {
+            /* display: flex;
+            flex-wrap: wrap; */
+            gap: 1px;
+            justify-content: center;
+        }
+        .image {
+            /* max-width: 200px; */
+            border: 1px solid #ddd;
+            padding: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+            
+        }
+        .caption{
+        
+            size: 12;
+            background-color: rgb(204, 204, 204);
+            color: white;
+        
+        }
+        /* Custom CSS */
+        
+
+        .card-column{
+            display: flex;
+            flex-direction: column;
+        }
+        /* Custom CSS */
+        .card-container {
+        display: flex;
+        flex-direction: column;/* Stack cards vertically */
+        gap: 20px; /* Gap between cards */
+        justify-content: center;
+        margin-left: 20%;
+        }
+
+        .card {
+           
+            margin: 0 auto;
+            border: 3px solid rgb(50, 135, 200);
+            background-color: rgb(215,240,255);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+            border-radius: 7px;
+            width: 70%; /* Full width of container */
+            margin: 1rem 0rem;
+            justify-content: center;
+                
+            /* Center 
+            the card horizontally */
+        }
+
+        .card-img-top {
+        
+         /* Full width of card */
+        
+         height: 60%;
+        }
+        .card-body{
+            background-color: rgb(170, 215, 255);
+            font-family: 'Poppins';
+            
+        }
+        /* Custom CSS */
+        .red-card {
+        border: 5px solid red;
+        border-radius: 15px;
+        padding: 1rem 1rem;
+        background-color: #ffebeb;
+        }
+        .title-bar{
+            background-color: rgb(50, 135, 200);
+            padding: 1rem 1rem;
+            border-radius: 25px;
+            justify-content: center;
+            text-align: center;
+            display:flex;
+            color: aliceblue;
+        }
+        .icon button{
+            padding: 1rem 1rem;
+            margin-left: 30%;
+            border:2px solid rgb(215,240,255);
+            border-radius: 5px;
+            background-color: rgb(110, 175, 220);
+            
+        }
+        .icon a{
+            color: aliceblue;
+        }
+        </style>
+        </head>
+        <body>
+            <div class="container mt-4">
+                <div class="title-bar">
+                <h1>Image Gallery</h1>
+                <div class="icon">
+                    <button><a href="{% url 'upload_image' %}">Upload</a></button>
+                </div>
+                </div>
+                <br>
+                <br>
+                <br>
+<!--                 
+                <div class="card-columns">
+                    {% for image in images %}
+                        <div class="card">
+                            <img class="card-img-top" src="{{ image.image.url }}" alt="Image">
+                            <div class="card-body">
+                                <p class="card-text">{{ image.caption }}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div> -->
+                <div id="gallery" class="card-container">
+                    {% for image in images %}
+                      <div class="card {% if image.is_red %}red-card{% endif %}">
+                        <img class="card-img-top" src="{{ image.image.url }}" alt="Image">
+                        <div class="card-body">
+                          <p class="card-text">{{ image.caption }}</p>
+                        </div>
+                      </div>
+                    {% endfor %}
+                  </div>
+        
+        
+        
+            </body>
+
+
+</html>

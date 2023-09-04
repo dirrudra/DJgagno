@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        .login-container{
+            border: 3px solid rgb(50, 135, 200);
+            background-color: rgb(215,240,255);
+            border-radius: 15px;
+            margin: 0 0;
+            padding: 2rem 2rem;
+            margin:1rem 1rem;
+            width: 55%;
+            font-family: Poppins;
+        }
+        .login-container h2{
+
+            font-family: Poppins;
+        }
+
+        .signup-container{
+            justify-content: center;
+            border: 3px solid rgb(50, 135, 200);
+            background-color: rgb(215,240,255);
+            border-radius: 15px;
+            padding: 2rem 2rem;
+            font-family: Poppins;
+            width: 45%;
+            margin: 1rem 1rem;
+
+        }
+        .body-contain{
+            display: flex;
+            justify-content: center;
+            margin: 10% 10%;
+        }
+        .icon button{
+            padding: 1rem 1rem;
+            margin-left: 30%;
+            border:2px solid rgb(215,240,255);
+            border-radius: 5px;
+            background-color: rgb(110, 175, 220);
+            
+        }
+        .icon a{
+            color: aliceblue;
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+<div class="body-contain">
+<div class="login-container">
+    <h2>Login</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="icon">
+    <button type="submit">Login</button>
+    </div>
+</form>
+</div>
+<div class="signup-container">
+    <h2>
+        Don't have an account?
+    </h2>
+    <div class="icon">
+    <a href="{% url 'signup' %}"><button>Sign Up</button></a>
+    </div>  
+
+</div>
+</div>
+</body>
+</html>
